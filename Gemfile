@@ -22,7 +22,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
-gem 'haml-rails'
+gem 'haml'
 gem 'devise'
 
 # Bundle gems for the local environment. Make sure to
@@ -32,6 +32,14 @@ gem 'devise'
 #   gem 'webrat'
 # end
 
-group :development, :test do
+group :development do
   gem 'cucumber-rails'
+  gem 'haml-rails'
+  gem 'rspec-rails', "~>2.0.0.beta.22"
+end
+
+group :development, :test do
+  gem 'cucumber'
+  gem 'rspec', "~>2.0.0.beta.22"
+  gem 'factory_girl'
 end
