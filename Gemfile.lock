@@ -45,6 +45,9 @@ GEM
     gherkin (2.1.5)
       trollop (~> 1.16.2)
     haml (3.0.18)
+    haml-rails (0.2)
+      haml (~> 3.0)
+      rails (~> 3.0.0.rc)
     i18n (0.4.1)
     json_pure (1.4.6)
     mail (2.2.6.1)
@@ -85,6 +88,6 @@ PLATFORMS
 
 DEPENDENCIES
   cucumber-rails
-  haml
+  haml-rails
   rails (= 3.0.0)
   sqlite3-ruby
