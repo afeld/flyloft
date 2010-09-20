@@ -40,8 +40,7 @@ module Flyspace
     config.filter_parameters += [:password]
     
     config.generators do |g|
-      g.test_framework :rspec, :fixture => true
-      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+      g.test_framework :rspec
     end
   end
 end
