@@ -36,6 +36,10 @@ group :development do
   gem 'cucumber-rails'
   gem 'haml-rails'
   gem 'rspec-rails', "~>2.0.0.beta.22"
+  
+  # gems for Devise
+  gem 'hpricot'
+  gem 'ruby_parser'
 end
 
 group :development, :test do
