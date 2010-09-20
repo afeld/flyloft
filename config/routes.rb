@@ -1,4 +1,6 @@
 Flyspace::Application.routes.draw do
+  resources :users
+
   resources :jobs
 
   devise_for :users
