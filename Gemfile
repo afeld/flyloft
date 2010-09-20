@@ -22,8 +22,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
-gem 'haml'
-gem 'devise'
+gem 'haml', "~>3.0.18"
+gem 'devise', "~>1.1.2"
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -33,17 +33,17 @@ gem 'devise'
 # end
 
 group :development do
-  gem 'cucumber-rails'
-  gem 'haml-rails'
-  gem 'rspec-rails', "~>2.0.0.beta.22"
+  gem 'cucumber-rails', "~>0.3.2"
+  gem 'haml-rails', "0.2" 
+  gem 'rspec-rails', "2.0.0.beta.22"
   
   # gems for Devise
-  gem 'hpricot'
-  gem 'ruby_parser'
+  gem 'hpricot', "~>0.8.2"
+  gem 'ruby_parser', "~>2.0.5"
 end
 
 group :development, :test do
   gem 'cucumber'
-  gem 'rspec', "~>2.0.0.beta.22"
+  gem 'rspec', "2.0.0.beta.22"
   gem 'factory_girl'
 end
