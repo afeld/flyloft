@@ -2,6 +2,9 @@ Flyspace::Application.routes.draw do
   resources :jobs
 
   devise_for :users
+  as :user do
+    get 'my_account' => 'devise/registrations#edit'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
