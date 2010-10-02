@@ -1,4 +1,6 @@
 Flyspace::Application.routes.draw do
+  resources :orgs
+
   devise_for :users
   as :user do
     get 'my_account' => 'devise/registrations#edit'

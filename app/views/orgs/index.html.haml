@@ -1,0 +1,37 @@
+%h1 Listing orgs
+
+%table
+  %tr
+    %th Name
+    %th Phone
+    %th Street
+    %th City
+    %th State
+    %th Zip
+    %th Country
+    %th Mission
+    %th Contact person
+    %th Founding year
+    %th
+    %th
+    %th
+
+  - @orgs.each do |org|
+    %tr
+      %td= org.name
+      %td= org.phone
+      %td= org.street
+      %td= org.city
+      %td= org.state
+      %td= org.zip
+      %td= org.country
+      %td= org.mission
+      %td= org.contact_person
+      %td= org.founding_year
+      %td= link_to 'Show', org
+      %td= link_to 'Edit', edit_org_path(org)
+      %td= link_to 'Destroy', org, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New org', new_org_path

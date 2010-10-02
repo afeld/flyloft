@@ -1,0 +1,34 @@
+%p
+  %b Name:
+  = @org.name
+%p
+  %b Phone:
+  = @org.phone
+%p
+  %b Street:
+  = @org.street
+%p
+  %b City:
+  = @org.city
+%p
+  %b State:
+  = @org.state
+%p
+  %b Zip:
+  = @org.zip
+%p
+  %b Country:
+  = @org.country
+%p
+  %b Mission:
+  = @org.mission
+%p
+  %b Contact person:
+  = @org.contact_person
+%p
+  %b Founding year:
+  = @org.founding_year
+
+= link_to 'Edit', edit_org_path(@org)
+\|
+= link_to 'Back', orgs_path
