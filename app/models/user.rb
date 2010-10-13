@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_many :org_members
-  has_many :memberships, :through => :org_members, :source => :org
+  has_many :org_memberships
+  has_many :memberships, :through => :org_memberships, :source => :org
   has_many :contact_person_for, :class_name => :org, :foreign_key => 'contact_person_id', :dependent => :nullify
 
   # Setup accessible (or protected) attributes for your model

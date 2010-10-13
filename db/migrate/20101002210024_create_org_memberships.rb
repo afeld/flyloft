@@ -1,6 +1,6 @@
-class CreateOrgMembers < ActiveRecord::Migration
+class CreateOrgMemberships < ActiveRecord::Migration
   def self.up
-    create_table :org_members do |t|
+    create_table :org_memberships do |t|
       t.integer :user_id
       t.integer :org_id
       t.boolean :is_admin, :default => true
@@ -10,6 +10,6 @@ class CreateOrgMembers < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :org_members
+    drop_table :org_memberships
   end
 end

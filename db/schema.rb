@@ -12,28 +12,7 @@
 
 ActiveRecord::Schema.define(:version => 20101002210024) do
 
-  create_table "gigs", :force => true do |t|
-    t.string   "title"
-    t.string   "company"
-    t.integer  "organization_id"
-    t.text     "description"
-    t.string   "contact_first_name"
-    t.string   "contact_last_name"
-    t.string   "contact_email"
-    t.integer  "contact_person"
-    t.integer  "creator"
-    t.string   "city"
-    t.string   "state"
-    t.string   "country"
-    t.date     "post_date"
-    t.date     "expire_date"
-    t.boolean  "enabled"
-    t.integer  "view_count"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "org_members", :force => true do |t|
+  create_table "org_memberships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "org_id"
     t.boolean  "is_admin",   :default => true
