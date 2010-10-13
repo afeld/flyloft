@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101002202701) do
+ActiveRecord::Schema.define(:version => 20101002210024) do
 
   create_table "gigs", :force => true do |t|
     t.string   "title"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(:version => 20101002202701) do
     t.date     "expire_date"
     t.boolean  "enabled"
     t.integer  "view_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "org_members", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "org_id"
+    t.boolean  "is_admin",   :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

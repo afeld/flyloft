@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-       
-
-       
-  has_many :contact_person_for, :class_name => 'Org', :foreign_key => 'contact_person_id'
+  
+  has_many :org_members
+  has_many :memberships, :through => :org_members, :source => :org
+  has_many :contact_person_for, :class_name => :org, :foreign_key => 'contact_person_id', :dependent => :nullify
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
