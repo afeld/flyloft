@@ -1,86 +1,51 @@
 class OrgsController < ApplicationController
-  # GET /orgs
-  # GET /orgs.xml
+  respond_to :html
+  
   def index
     @orgs = Org.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @orgs }
-    end
+    respond_with @orgs
   end
 
-  # GET /orgs/1
-  # GET /orgs/1.xml
   def show
     @org = Org.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @org }
-    end
+    respond_with @org
   end
 
-  # GET /orgs/new
-  # GET /orgs/new.xml
   def new
     @org = Org.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @org }
-    end
+    respond_with @org
   end
 
-  # GET /orgs/1/edit
   def edit
     @org = Org.find(params[:id])
   end
 
-  # POST /orgs
-  # POST /orgs.xml
   def create
     @org = Org.new(params[:org])
     @org.contact_person ||= current_user
-
-    respond_to do |format|
-      if @org.save
-        @org.members << current_user if user_signed_in?
-        
-        format.html { redirect_to(@org, :notice => 'Org was successfully created.') }
-        format.xml  { render :xml => @org, :status => :created, :location => @org }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @org.errors, :status => :unprocessable_entity }
-      end
+    
+    if @org.save
+      @org.members << current_user if user_signed_in?
+      flash[:notice] = 'Org was successfully created.'
     end
+    
+    respond_with @org
   end
 
-  # PUT /orgs/1
-  # PUT /orgs/1.xml
   def update
     @org = Org.find(params[:id])
-
-    respond_to do |format|
-      if @org.update_attributes(params[:org])
-        format.html { redirect_to(@org, :notice => 'Org was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @org.errors, :status => :unprocessable_entity }
-      end
+    
+    if @org.update_attributes(params[:org])
+      flash[:notice] = 'Org was successfully updated.'
     end
+    
+    respond_with @org
   end
 
-  # DELETE /orgs/1
-  # DELETE /orgs/1.xml
   def destroy
     @org = Org.find(params[:id])
     @org.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(orgs_url) }
-      format.xml  { head :ok }
-    end
+    
+    respond_with @org
   end
 end
