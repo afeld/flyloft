@@ -1,0 +1,49 @@
+%p
+  %b Title:
+  = @gig.title
+%p
+  %b Company:
+  = @gig.company
+%p
+  %b Organization:
+  = @gig.org_id
+%p
+  %b Description:
+  = @gig.description
+%p
+  %b Contact first name:
+  = @gig.contact_first_name
+%p
+  %b Contact last name:
+  = @gig.contact_last_name
+%p
+  %b Contact email:
+  = @gig.contact_email
+%p
+  %b Creator:
+  = @gig.creator_id
+%p
+  %b City:
+  = @gig.city
+%p
+  %b State:
+  = @gig.state
+%p
+  %b Country:
+  = @gig.country
+%p
+  %b Post date:
+  = @gig.post_date
+%p
+  %b Expire date:
+  = @gig.expire_date
+%p
+  %b Enabled:
+  = @gig.enabled
+%p
+  %b View count:
+  = @gig.view_count
+
+= link_to 'Edit', edit_gig_path(@gig)
+\|
+= link_to 'Back', gigs_path

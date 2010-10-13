@@ -1,4 +1,6 @@
 Flyspace::Application.routes.draw do
+  resources :gigs
+
   resources :orgs
 
   devise_for :users
