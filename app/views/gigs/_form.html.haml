@@ -12,9 +12,10 @@
   .field
     = f.label :company
     = f.text_field :company
-  .field
-    = f.label :org_id
-    = f.text_field :org_id
+  - if user_signed_in?
+    .field
+      = f.label :org_id
+      = f.collection_select :org_id, current_user.memberships, :id, :name
   .field
     = f.label :description
     = f.text_area :description
@@ -27,9 +28,6 @@
   .field
     = f.label :contact_email
     = f.text_field :contact_email
-  .field
-    = f.label :creator_id
-    = f.text_field :creator_id
   .field
     = f.label :city
     = f.text_field :city
@@ -48,8 +46,5 @@
   .field
     = f.label :enabled
     = f.check_box :enabled
-  .field
-    = f.label :view_count
-    = f.text_field :view_count
   .actions
     = f.submit 'Save'

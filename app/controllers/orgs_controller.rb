@@ -41,9 +41,12 @@ class OrgsController < ApplicationController
   # POST /orgs.xml
   def create
     @org = Org.new(params[:org])
+    @org.contact_person ||= current_user
 
     respond_to do |format|
       if @org.save
+        @org.members << current_user if user_signed_in?
+        
         format.html { redirect_to(@org, :notice => 'Org was successfully created.') }
         format.xml  { render :xml => @org, :status => :created, :location => @org }
       else

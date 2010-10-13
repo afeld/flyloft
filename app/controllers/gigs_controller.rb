@@ -25,6 +25,11 @@ class GigsController < ApplicationController
   # GET /gigs/new.xml
   def new
     @gig = Gig.new
+    if user_signed_in?
+      @gig.contact_first_name ||= current_user.first_name
+      @gig.contact_last_name ||= current_user.last_name
+      @gig.contact_email ||= current_user.email
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +46,7 @@ class GigsController < ApplicationController
   # POST /gigs.xml
   def create
     @gig = Gig.new(params[:gig])
+    @gig.creator ||= current_user
 
     respond_to do |format|
       if @gig.save

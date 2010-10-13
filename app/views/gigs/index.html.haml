@@ -9,7 +9,6 @@
     %th Contact first name
     %th Contact last name
     %th Contact email
-    %th Contact person
     %th Creator
     %th City
     %th State
@@ -31,7 +30,7 @@
       %td= gig.contact_first_name
       %td= gig.contact_last_name
       %td= gig.contact_email
-      %td= gig.creator_id
+      %td= gig.creator.display_name
       %td= gig.city
       %td= gig.state
       %td= gig.country

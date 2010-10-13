@@ -6,7 +6,7 @@
   = @gig.company
 %p
   %b Organization:
-  = @gig.org_id
+  = @gig.org.name if @gig.org
 %p
   %b Description:
   = @gig.description
@@ -21,7 +21,7 @@
   = @gig.contact_email
 %p
   %b Creator:
-  = @gig.creator_id
+  = @gig.creator.display_name
 %p
   %b City:
   = @gig.city

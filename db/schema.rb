@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20101013062619) do
   create_table "org_memberships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "org_id"
-    t.boolean  "is_admin",   :default => true
+    t.boolean  "is_admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

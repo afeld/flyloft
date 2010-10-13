@@ -22,12 +22,19 @@
 %p
   %b Mission:
   = @org.mission
-%p
-  %b Contact person:
-  = @org.contact_person
+- if @org.contact_person
+  %p
+    %b Contact person:
+    = @org.contact_person.display_name
 %p
   %b Founding year:
   = @org.founding_year
+%p
+  %b Members:
+  %ul
+  - @org.members.each do |member|
+    %li
+      = member.display_name
 
 = link_to 'Edit', edit_org_path(@org)
 \|
