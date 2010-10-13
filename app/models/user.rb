@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_many :org_memberships
+  has_many :org_memberships, :dependent => :destroy
   has_many :memberships, :through => :org_memberships, :source => :org
   has_many :contact_person_for, :class_name => :org, :foreign_key => 'contact_person_id', :dependent => :nullify
 
