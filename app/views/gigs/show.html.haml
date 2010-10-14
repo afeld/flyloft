@@ -21,7 +21,7 @@
   = @gig.contact_email
 %p
   %b Creator:
-  = @gig.creator.display_name
+  = @gig.creator.display_name if @gig.creator
 %p
   %b City:
   = @gig.city

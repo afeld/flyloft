@@ -8,11 +8,17 @@ class GigsController < ApplicationController
 
   def show
     @gig = Gig.find(params[:id])
+    if user_signed_in? and current_user != @gig.creator
+      @gig.view_count += 1
+      @gig.save
+    end
+    
     respond_with @gig
   end
 
   def new
     @gig = Gig.new
+    @gig.expire_date = Date.today + 30.days
     if user_signed_in?
       @gig.contact_first_name ||= current_user.first_name
       @gig.contact_last_name ||= current_user.last_name
