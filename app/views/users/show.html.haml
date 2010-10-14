@@ -1,0 +1,14 @@
+%p
+  %b First Name:
+  = @user.first_name
+%p
+  %b Last Name:
+  = @user.last_name
+%p
+  %b Member of:
+  %ul
+  - @user.memberships.each do |org|
+    %li
+      = link_to org.name, org
+
+= link_to 'Back', users_path

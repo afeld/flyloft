@@ -1,0 +1,13 @@
+%h1 Listing users
+
+%table
+  %tr
+    %th First Name
+    %th Last Name
+    %th
+
+  - @users.each do |user|
+    %tr
+      %td= user.first_name
+      %td= user.last_name
+      %td= link_to 'Show', user
