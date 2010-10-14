@@ -1,4 +1,4 @@
-%h1 Listing gigs
+%h1 Gigs
 
 %table
   %tr
@@ -30,7 +30,7 @@
       %td= gig.contact_first_name
       %td= gig.contact_last_name
       %td= gig.contact_email
-      %td= gig.creator.display_name
+      %td= gig.creator.display_name if gig.creator
       %td= gig.city
       %td= gig.state
       %td= gig.country
