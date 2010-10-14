@@ -8,10 +8,6 @@
   %body
     %h1
       = link_to "Welcome to Flyspace!", root_path
-    .notice
-      = notice
-    .alert
-      = alert
     .account
       #user_nav
         - if user_signed_in?
@@ -22,4 +18,8 @@
           = link_to "Sign up", new_user_registration_path
           or
           = link_to "sign in", new_user_session_path
+    .notice
+      = notice
+    .alert
+      = alert
     = yield

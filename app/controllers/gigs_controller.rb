@@ -37,7 +37,11 @@ class GigsController < ApplicationController
     @gig.creator ||= current_user
 
     if @gig.save
-      flash[:notice] = 'Gig was successfully created.'
+      if @gig.enabled
+        flash[:notice] = 'Gig was successfully listed!'
+      else
+        flash[:notice] = 'Gig was successfully created.'
+      end
     end
       
     respond_with @gig
@@ -45,9 +49,16 @@ class GigsController < ApplicationController
 
   def update
     @gig = Gig.find(params[:id])
+    was_enabled = @gig.enabled
 
     if @gig.update_attributes(params[:gig])
-      flash[:notice] = 'Gig was successfully updated.'
+      if !was_enabled and @gig.enabled
+        flash[:notice] = 'Gig was successfully listed!'
+      elsif was_enabled and !@gig.enabled
+        flash[:notice] = 'Gig was successfully unlisted.'
+      else
+        flash[:notice] = 'Gig was successfully updated.'
+      end
     end
     
     respond_with @gig
