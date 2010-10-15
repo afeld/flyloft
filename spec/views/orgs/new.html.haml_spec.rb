@@ -12,7 +12,7 @@ describe "orgs/new.html.haml" do
       :zip => 1,
       :country => "MyString",
       :mission => "MyText",
-      :contact_person => 1,
+      :contact_person_id => 1,
       :founding_year => 1
     ))
   end
