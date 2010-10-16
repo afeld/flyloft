@@ -44,7 +44,12 @@ group :development do
 end
 
 group :development, :test do
-  gem 'cucumber'
   gem 'rspec'
   gem 'factory_girl'
+  
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber'
+  gem 'spork'
+  gem 'launchy'
 end
