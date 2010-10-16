@@ -8,18 +8,27 @@
   %body
     %h1
       = link_to "Welcome to Flyspace!", root_path
-    .account
-      #user_nav
-        - if user_signed_in?
-          #{current_user.first_name} #{current_user.last_name.first}.
-          = link_to "My Account", my_account_path
-          = link_to "Sign out", sign_out_path
-        - else
-          = link_to "Sign up", sign_up_path
-          or
-          = link_to "sign in", sign_in_path
-    .notice
+    #account
+      - if user_signed_in?
+        #{current_user.first_name} #{current_user.last_name.first}.
+        = link_to "My Account", my_account_path
+        = link_to "Sign out", sign_out_path
+      - else
+        = link_to "Sign up", sign_up_path
+        or
+        = link_to "sign in", sign_in_path
+    #nav-bar
+      %ul
+        %li
+          = link_to_unless_current "Home", root_path
+        %li
+          = link_to_unless_current "Gigs", gigs_path
+        %li
+          = link_to_unless_current "Orgs", orgs_path
+        %li
+          = link_to_unless_current "Users", users_path
+    #notice
       = notice
-    .alert
+    #alert
       = alert
     = yield
