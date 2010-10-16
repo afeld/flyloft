@@ -3,6 +3,7 @@
   %head
     %title Flyspace
     = stylesheet_link_tag :all
+    / = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
@@ -27,8 +28,10 @@
           = link_to_unless_current "Orgs", orgs_path
         %li
           = link_to_unless_current "Users", users_path
-    #notice
-      = notice
-    #alert
-      = alert
+    - if notice
+      #notice
+        = notice
+    - if alert
+      #alert
+        = alert
     = yield
