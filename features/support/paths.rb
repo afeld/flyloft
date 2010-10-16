@@ -10,6 +10,12 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the new gig page/
+      new_gig_path
+
+    when /the new gig page/
+      new_gig_path
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
