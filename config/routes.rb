@@ -1,15 +1,17 @@
 Flyspace::Application.routes.draw do
-  get "users" => 'users#index'
-  get "users/:id" => 'users#show', :as => :user
-  
   resources :gigs
 
   resources :orgs
 
-  devise_for :users
-  as :user do
+  devise_for :users do
+    get 'sign_in' => 'devise/sessions#new'
+    get 'sign_out' => 'devise/sessions#destroy'
+    get 'sign_up' => 'devise/registrations#new'
     get 'my_account' => 'devise/registrations#edit'
   end
+  
+  get "users" => 'users#index'
+  get "users/:id" => 'users#show', :as => :user
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

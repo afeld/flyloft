@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
   def index
-    @gigs = Gig.all(:limit => 20, :order => :post_date)
+    @gigs = Gig.all(:limit => 20, :order => :post_date, :conditions => {:enabled => true})
   end
 end

@@ -13,11 +13,11 @@
         - if user_signed_in?
           Signed in as #{current_user.email}. Not you?
           = link_to "My Account", my_account_path
-          = link_to "Sign out", destroy_user_session_path
+          = link_to "Sign out", sign_out_path
         - else
-          = link_to "Sign up", new_user_registration_path
+          = link_to "Sign up", sign_up_path
           or
-          = link_to "sign in", new_user_session_path
+          = link_to "sign in", sign_in_path
     .notice
       = notice
     .alert
