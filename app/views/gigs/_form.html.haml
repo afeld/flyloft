@@ -15,7 +15,7 @@
   - if user_signed_in?
     .field
       = f.label :org_id
-      = f.collection_select :org_id, current_user.memberships, :id, :name
+      = f.collection_select :org_id, current_user.memberships, :id, :name, :prompt => 'none'
   .field
     = f.label :description
     = f.text_area :description
