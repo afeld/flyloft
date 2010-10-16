@@ -11,7 +11,7 @@
     .account
       #user_nav
         - if user_signed_in?
-          Signed in as #{current_user.email}. Not you?
+          #{current_user.first_name} #{current_user.last_name.first}.
           = link_to "My Account", my_account_path
           = link_to "Sign out", sign_out_path
         - else
