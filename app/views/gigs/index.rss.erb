@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+	<title>RSS Title</title>
+	<description>This is an example of an RSS feed</description>
+	<link><%= request.url %></link>
+	<atom:link href="<%= request.url.sub /\.rss$/, ".atom"  %>" rel="self" type="application/rss+xml" />
+	<lastBuildDate><%= Time.now.rfc822 %></lastBuildDate>
+	<pubDate><%= Time.now.rfc822 %></pubDate>
+  
+  <% @gigs.each do |gig| %>
+	<item>
+		<title><%= gig.title %></title>
+		<description><%= gig.description %></description>
+		<link><%= request.protocol %><%= request.host_with_port %><%= gig_path gig %></link>
+		<guid><%= request.protocol %><%= request.host_with_port %><%= gig_path gig %></guid>
+		<pubDate><%= gig.post_date.to_datetime.to_time.rfc822 %></pubDate>
+	</item>
+	<% end %>
+
+</channel>
+</rss>

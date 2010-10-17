@@ -1,5 +1,5 @@
 class GigsController < ApplicationController
-  respond_to :html
+  respond_to :html, :rss, :atom, :xml
 
   def index
     @gigs = Gig.all
