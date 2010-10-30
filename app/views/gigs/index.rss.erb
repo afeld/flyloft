@@ -4,7 +4,7 @@
 	<title>RSS Title</title>
 	<description>This is an example of an RSS feed</description>
 	<link><%= request.url %></link>
-	<atom:link href="<%= request.url.sub /\.rss$/, ".atom"  %>" rel="self" type="application/rss+xml" />
+	<atom:link href="<%= request.url  %>" rel="self" type="application/rss+xml" />
 	<lastBuildDate><%= Time.now.rfc822 %></lastBuildDate>
 	<pubDate><%= Time.now.rfc822 %></pubDate>
   

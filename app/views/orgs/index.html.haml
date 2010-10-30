@@ -1,4 +1,6 @@
-%h1 Listing orgs
+%h1 Orgs
+
+= link_to 'Add my organization!', new_org_path
 
 %table
   %tr
@@ -33,5 +35,3 @@
       %td= link_to 'Destroy', org, :confirm => 'Are you sure?', :method => :delete
 
 %br
-
-= link_to 'New org', new_org_path

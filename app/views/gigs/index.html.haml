@@ -3,6 +3,8 @@
 
 %h1 Gigs
 
+= link_to 'Add a gig!', new_gig_path
+
 %table
   %tr
     %th Title
@@ -46,5 +48,3 @@
       %td= link_to 'Destroy', gig, :confirm => 'Are you sure?', :method => :delete
 
 %br
-
-= link_to 'New gig', new_gig_path
