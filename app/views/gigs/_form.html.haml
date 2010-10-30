@@ -1,6 +1,6 @@
 = form_for @gig do |f|
   -if @gig.errors.any?
-    #errorExplanation
+    #error_explanation
       %h2= "#{pluralize(@gig.errors.count, "error")} prohibited this gig from being saved:"
       %ul
         - @gig.errors.full_messages.each do |msg|
