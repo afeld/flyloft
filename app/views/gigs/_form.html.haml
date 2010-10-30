@@ -43,6 +43,20 @@
   .field
     = f.label :expire_at
     = f.text_field :expire_at
+  :javascript
+    $(function(){
+      var dates = $('#gig_post_at, #gig_expire_at').datepicker({ 
+        onSelect: function( selectedDate ) {
+          var option = this.id == "from" ? "minDate" : "maxDate",
+            instance = $( this ).data( "datepicker" );
+          date = $.datepicker.parseDate(
+            instance.settings.dateFormat ||
+            $.datepicker._defaults.dateFormat,
+            selectedDate, instance.settings );
+          dates.not( this ).datepicker( "option", option, date );
+        }
+      });
+    });
   .field
     = f.label :enabled
     = f.check_box :enabled

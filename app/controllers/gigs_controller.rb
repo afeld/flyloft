@@ -19,7 +19,6 @@ class GigsController < ApplicationController
   def new
     @gig = Gig.new
     @gig.post_at = DateTime.now
-    @gig.expire_at = @gig.post_at + 30.days
     if user_signed_in?
       @gig.contact_first_name ||= current_user.first_name
       @gig.contact_last_name ||= current_user.last_name
