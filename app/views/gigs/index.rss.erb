@@ -5,8 +5,8 @@
 	<description>This is an example of an RSS feed</description>
 	<link><%= request.url %></link>
 	<atom:link href="<%= request.url  %>" rel="self" type="application/rss+xml" />
-	<lastBuildDate><%= Time.now.rfc822 %></lastBuildDate>
-	<pubDate><%= Time.now.rfc822 %></pubDate>
+	<lastBuildDate><%= DateTime.now.rfc822 %></lastBuildDate>
+	<pubDate><%= DateTime.now.rfc822 %></pubDate>
   
   <% @gigs.each do |gig| %>
 	<item>
@@ -14,7 +14,7 @@
 		<description><%= gig.description %></description>
 		<link><%= request.protocol %><%= request.host_with_port %><%= gig_path gig %></link>
 		<guid><%= request.protocol %><%= request.host_with_port %><%= gig_path gig %></guid>
-		<pubDate><%= gig.post_date.to_datetime.to_time.rfc822 %></pubDate>
+		<pubDate><%= gig.post_at.rfc822 %></pubDate>
 	</item>
 	<% end %>
 

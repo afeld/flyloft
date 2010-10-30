@@ -12,8 +12,8 @@ class CreateGigs < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :country
-      t.date :post_date
-      t.date :expire_date
+      t.datetime :post_at
+      t.datetime :expire_at
       t.boolean :enabled
       t.integer :view_count
 
