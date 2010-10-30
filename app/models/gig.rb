@@ -9,6 +9,8 @@ class Gig < ActiveRecord::Base
   
   validate :expire_at_later_than_post_at
   validate :post_and_expire_must_be_present_to_enable
+  validate :cant_have_an_org_and_a_company
+  
   
   private
   
@@ -27,5 +29,9 @@ class Gig < ActiveRecord::Base
         errors.add(:enabled, "cannot be checked unless expiration date is set")
       end
     end
+  end
+  
+  def cant_have_an_org_and_a_company
+    errors.add(:org, "must be set to 'other' if you want to create a new Org") if self.org and !self.company.blank?
   end
 end
