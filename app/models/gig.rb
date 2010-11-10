@@ -32,6 +32,6 @@ class Gig < ActiveRecord::Base
   end
   
   def cant_have_an_org_and_a_company
-    errors.add(:org, "must be set to 'other' if you want to create a new Org") if self.org and !self.company.blank?
+    errors.add(:org, "must be set to 'other' if you want to create a new Org") if self.org and self.company.present?
   end
 end
