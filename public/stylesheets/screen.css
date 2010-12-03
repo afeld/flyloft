@@ -1,13 +1,69 @@
+.clear {
+  clear: both;
+}
+
+body {
+  margin: 0;
+  background-color: gray;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
 #wrapper {
   width: 900px;
-  margin: auto;
+  margin: 10px auto;
+}
+#wrapper > div {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+#wrapper > #nav-bar {
+  background-color: black;
+  padding: 0 15px;
+}
+#nav-bar ul {
+  height: 25px;
+  margin: 0 30px 0 0;
+  padding: 0; 
+}
+#nav-bar ul li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0; 
+}
+#nav-bar ul li a {
+  float: left;
+  font-size: 10pt;
+  font-weight: normal;
+  margin: 0;
+  padding: 4px 25px 6px;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
+  color: white;
+  text-decoration: none; 
+}
+#nav-bar ul li a:hover {
+  background-color: gray; 
+}
+#nav-bar ul li a.selected {
+  background-color: white;
+  border: 1px solid;
+  border-color: black;
+  color: black;
+  font-weight: bold; 
 }
 
 form.formtastic fieldset {
   border-bottom: 1px solid gray;
   margin: 10px 10px 0;
 }
-
 form.formtastic fieldset:last-child {
   border-bottom: none;
 }
