@@ -36,6 +36,7 @@ class GigsController < ApplicationController
   def create
     @gig = Gig.new(params[:gig])
     @gig.creator ||= current_user
+    @gig.enabled = false if params[:commit] =~ /draft/i
 
     if @gig.save
       if @gig.enabled
@@ -51,6 +52,7 @@ class GigsController < ApplicationController
   def update
     @gig = Gig.find(params[:id])
     was_enabled = @gig.enabled
+    @gig.enabled = true unless params[:commit] =~ /draft/i
 
     if @gig.update_attributes(params[:gig])
       if !was_enabled and @gig.enabled
