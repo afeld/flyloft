@@ -10,7 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101013062619) do
+ActiveRecord::Schema.define(:version => 20101203050904) do
+
+  create_table "auditions", :force => true do |t|
+    t.integer  "gig_id"
+    t.string   "place"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "gigs", :force => true do |t|
     t.string   "title"
