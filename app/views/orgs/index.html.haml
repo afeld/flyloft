@@ -5,15 +5,7 @@
 %table
   %tr
     %th Name
-    %th Phone
-    %th Street
-    %th City
-    %th State
-    %th Zip
-    %th Country
-    %th Mission
-    %th Contact person
-    %th Founding year
+    %th Location
     %th
     %th
     %th
@@ -21,15 +13,7 @@
   - @orgs.each do |org|
     %tr
       %td= org.name
-      %td= org.phone
-      %td= org.street
-      %td= org.city
-      %td= org.state
-      %td= org.zip
-      %td= org.country
-      %td= org.mission
-      %td= org.contact_person.display_name if org.contact_person
-      %td= org.founding_year
+      %td= org.location
       %td= link_to 'Show', org
       %td= link_to 'Edit', edit_org_path(org)
       %td= link_to 'Destroy', org, :confirm => 'Are you sure?', :method => :delete

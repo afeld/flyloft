@@ -8,20 +8,10 @@
 %table
   %tr
     %th Title
-    %th Company
     %th Organization
-    %th Description
-    %th Contact first name
-    %th Contact last name
-    %th Contact email
-    %th Creator
-    %th City
-    %th State
-    %th Country
+    %th Location
     %th Post date
     %th Expire date
-    %th Enabled
-    %th View count
     %th
     %th
     %th
@@ -29,20 +19,10 @@
   - @gigs.each do |gig|
     %tr
       %td= gig.title
-      %td= gig.company
-      %td= gig.org_id
-      %td= gig.description
-      %td= gig.contact_first_name
-      %td= gig.contact_last_name
-      %td= gig.contact_email
-      %td= gig.creator.display_name if gig.creator
-      %td= gig.city
-      %td= gig.state
-      %td= gig.country
+      %td= gig.org || gig.company
+      %td= gig.location
       %td= gig.post_at
       %td= gig.expire_at
-      %td= gig.enabled
-      %td= gig.view_count
       %td= link_to 'Show', gig
       %td= link_to 'Edit', edit_gig_path(gig)
       %td= link_to 'Destroy', gig, :confirm => 'Are you sure?', :method => :delete

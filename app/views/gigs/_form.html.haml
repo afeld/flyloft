@@ -57,5 +57,8 @@
   = f.inputs :description
   
   = f.buttons do
-    = f.commit_button "Post it!"
-    = f.commit_button "Save Draft" if @gig.new_record? or !@gig.enabled
+    - if @gig.new_record?
+      = f.commit_button "Post it!"
+    - else
+      = f.commit_button "Update"
+    = f.commit_button "Save Draft" unless @gig.is_published?

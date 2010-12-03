@@ -1,4 +1,6 @@
 class Gig < ActiveRecord::Base
+  include Locatable
+  
   default_value_for :view_count, 0
   default_value_for :post_at, DateTime.now
   default_value_for :expire_at, DateTime.now + 30.days
@@ -13,6 +15,15 @@ class Gig < ActiveRecord::Base
   validate :expire_at_later_than_post_at
   validate :post_and_expire_must_be_present_to_enable
   validate :cant_have_an_org_and_a_company
+  
+  
+  def is_published?
+    !self.new_record? and self.enabled
+  end
+  
+  def is_draft?
+    !self.new_record? and !self.enabled
+  end
   
   
   private
