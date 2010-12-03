@@ -1,4 +1,4 @@
-Flyspace::Application.routes.draw do
+Flyloft::Application.routes.draw do
   resources :gigs
 
   resources :orgs

@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Flyspace::Application.load_tasks
+Flyloft::Application.load_tasks
