@@ -6,7 +6,9 @@ class Gig < ActiveRecord::Base
   
   belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
   belongs_to :org
-  has_many :auditions
+  has_many :auditions, :dependent => :destroy
+  
+  accepts_nested_attributes_for :auditions
   
   validate :expire_at_later_than_post_at
   validate :post_and_expire_must_be_present_to_enable

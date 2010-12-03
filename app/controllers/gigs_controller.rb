@@ -18,6 +18,7 @@ class GigsController < ApplicationController
 
   def new
     @gig = Gig.new
+    @gig.auditions.build
     
     if user_signed_in?
       @gig.contact_first_name ||= current_user.first_name
