@@ -6,6 +6,7 @@ class CreateAuditions < ActiveRecord::Migration
       t.string :address
       t.string :city
       t.string :state
+      t.string :country
       t.float :latitude
       t.float :longitude
       t.datetime :start_at
