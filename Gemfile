@@ -23,6 +23,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
 gem 'haml', '~>3.0.18'
+gem 'formtastic', '~>1.2.2'
 gem 'devise', '~>1.1.2'
 gem 'jquery-rails'
 
