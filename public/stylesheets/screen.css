@@ -1,8 +1,8 @@
-.form-group {
+form.formtastic fieldset {
   border-bottom: 1px solid gray;
-  padding: 10px;
-  margin: 0 10px;
+  margin: 10px 10px 0;
 }
-.form-group:last-child {
+
+form.formtastic fieldset:last-child {
   border-bottom: none;
 }

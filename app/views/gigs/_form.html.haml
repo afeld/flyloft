@@ -1,4 +1,4 @@
-= form_for @gig do |f|
+= semantic_form_for @gig do |f|
   -if @gig.errors.any?
     #error_explanation
       %h2= "#{pluralize(@gig.errors.count, "error")} prohibited this gig from being saved:"
@@ -6,82 +6,56 @@
         - @gig.errors.full_messages.each do |msg|
           %li= msg
 
-  .form-group
-    .field
-      = f.label :title
-      = f.text_field :title
-    .field
-      = f.label :org_id
-      - unless current_user.memberships.empty?
-        = f.collection_select :org_id, current_user.memberships, :id, :name, :include_blank => 'other...', :selected => current_user.memberships.first.id
-      = f.text_field :company
+  = f.inputs :title
+  
+  - f.inputs do
+    - unless current_user.memberships.empty?
+      = f.input :org, :include_blank => "other..."
+    = f.input :company, :label => "Organization Name"
+
     :javascript
       function hideCompanyIfOrgSelected() {
         if ($('#gig_org_id').val() === '') {
-          $('#gig_company').show();
+          $('#gig_company_input').show();
         } else {
-          $('#gig_company').hide().val('');
+          $('#gig_company_input').hide().val('');
         }
       }
-      
+    
       $(function(){
         hideCompanyIfOrgSelected();
         $('#gig_org_id').change(function(e){ hideCompanyIfOrgSelected(); });
       });
-  .form-group
-    %h2
-      Contact Info
-    .field
-      = f.label :contact_first_name, "First Name"
-      = f.text_field :contact_first_name
-    .field
-      = f.label :contact_last_name, "Last Name"
-      = f.text_field :contact_last_name
-    .field
-      = f.label :contact_email, "Email"
-      = f.text_field :contact_email
+      
+  - f.inputs :name => "Contact Info" do
+    = f.input :contact_first_name, :label => "First Name"
+    = f.input :contact_last_name, :label => "Last Name"
+    = f.input :contact_email, :label => "Email"
   
-  .form-group
-    %h2
-      Auditions
-    - f.fields_for :auditions do |audition_form|
-      .form-group
-        .field
-          = audition_form.label :city
-          = audition_form.text_field :city
-        .field
-          = audition_form.label :state
-          = audition_form.text_field :state
-        .field
-          = audition_form.label :country
-          = audition_form.text_field :country
+  = f.inputs :city, :state, :for => :auditions, :name => "Auditions"
   
-  .form-group
-    .field
-      = f.label :post_at, "Post on"
-      = f.text_field :post_at
-    .field
-      = f.label :expire_at, "Expire on"
-      = f.text_field :expire_at
-    :javascript
-      $(function(){
-        var dates = $('#gig_post_at, #gig_expire_at').datepicker({ 
-          onSelect: function( selectedDate ) {
-            var option = this.id == "from" ? "minDate" : "maxDate",
-              instance = $( this ).data( "datepicker" );
-            date = $.datepicker.parseDate(
-              instance.settings.dateFormat ||
-              $.datepicker._defaults.dateFormat,
-              selectedDate, instance.settings );
-            dates.not( this ).datepicker( "option", option, date );
-          }
-        });
+  - f.inputs do
+    = f.input :post_at, :label => "Post on", :as => :date_picker
+    = f.input :expire_at, :label => "Expire on", :as => :date_picker
+
+  :javascript
+    $(function(){
+      var dates = $( "#gig_post_at, #gig_expire_at" ).datepicker({
+        onSelect: function( selectedDate ) {
+          var option = this.id == "gig_post_at" ? "minDate" : "maxDate",
+            instance = $( this ).data( "datepicker" );
+          date = $.datepicker.parseDate(
+            instance.settings.dateFormat ||
+            $.datepicker._defaults.dateFormat,
+            selectedDate, instance.settings
+          );
+          dates.not( this ).datepicker( "option", option, date );
+        }
       });
-  .form-group
-    .field
-      = f.label :description
-      = f.text_area :description
-  .form-group
-    .actions
-      = f.submit "Post it!"
-      = f.submit "Save Draft" if @gig.new_record? or !@gig.enabled
+    });
+  
+  = f.inputs :description
+  
+  = f.buttons do
+    = f.commit_button "Post it!"
+    = f.commit_button "Save Draft" if @gig.new_record? or !@gig.enabled
