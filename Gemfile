@@ -24,6 +24,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'haml', '~>3.0.18'
 gem 'formtastic', '~>1.2.2'
+gem 'formtastic_datepicker_inputs'
 gem 'devise', '~>1.1.2'
 gem 'jquery-rails'
 
