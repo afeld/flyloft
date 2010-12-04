@@ -10,8 +10,8 @@
   %body
     #wrapper
       #header
-        %h1
-          = link_to "Welcome to Flyloft!", root_path
+        #banner
+          = link_to "Flyloft", root_path
         #account
           - if user_signed_in?
             #{current_user.first_name} #{current_user.last_name.first}.
@@ -21,6 +21,7 @@
             = link_to "Sign up", sign_up_path
             or
             = link_to "sign in", sign_in_path
+        .clear
       #nav-bar
         = render_navigation
         .clear

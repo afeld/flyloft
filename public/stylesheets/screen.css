@@ -1,10 +1,20 @@
 .clear {
   clear: both;
 }
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+li {
+  list-style-type: none;
+}
 
 body {
   margin: 0;
   background-color: gray;
+  font-family: helvetica, arial, sans-serif;
 }
 
 h1:first-child {
@@ -22,6 +32,14 @@ h1:first-child {
   margin-bottom: 10px;
 }
 
+#banner {
+  float: left;
+  font-size: 2em;
+}
+#account {
+  float: right;
+}
+
 #wrapper > #nav-bar {
   background-color: black;
   padding: 0 15px;
@@ -33,7 +51,6 @@ h1:first-child {
 }
 #nav-bar ul li {
   display: inline;
-  list-style-type: none;
   margin: 0;
   padding: 0; 
 }
