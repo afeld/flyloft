@@ -10,7 +10,7 @@ class Gig < ActiveRecord::Base
   belongs_to :org
   has_many :auditions, :dependent => :destroy
   
-  accepts_nested_attributes_for :auditions
+  accepts_nested_attributes_for :auditions, :allow_destroy => true
   
   validate :expire_at_later_than_post_at
   validate :post_and_expire_must_be_present_to_enable

@@ -8,7 +8,7 @@
 
   = f.inputs :title
   
-  - f.inputs do
+  = f.inputs do
     - unless current_user.memberships.empty?
       = f.input :org, :include_blank => "other..."
     = f.input :company, :label => "Organization Name"
@@ -27,14 +27,17 @@
         $('#gig_org_id').change(function(e){ hideCompanyIfOrgSelected(); });
       });
       
-  - f.inputs :name => "Contact Info" do
+  = f.inputs :name => "Contact Info" do
     = f.input :contact_first_name, :label => "First Name"
     = f.input :contact_last_name, :label => "Last Name"
     = f.input :contact_email, :label => "Email"
   
-  = f.inputs :city, :state, :for => :auditions, :name => "Auditions"
+  = f.inputs :name => "Auditions" do
+    = f.semantic_fields_for :auditions do |audition_form|
+      = render :partial => 'gigs/audition_fields', :locals => {:f => audition_form}
+    = link_to_add_fields "Add Audition", f, :auditions
   
-  - f.inputs do
+  = f.inputs do
     = f.input :post_at, :label => "Post on", :as => :date_picker
     = f.input :expire_at, :label => "Expire on", :as => :date_picker
 
