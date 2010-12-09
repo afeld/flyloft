@@ -6,6 +6,7 @@
         - @org.errors.full_messages.each do |msg|
           %li= msg
 
+  = hidden_field :gig, :id, :value => @gig_id
   .field
     = f.label :name
     = f.text_field :name

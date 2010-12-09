@@ -13,7 +13,8 @@ class OrgsController < ApplicationController
   end
 
   def new
-    @org = Org.new
+    @org = Org.new(:name => params[:name])
+    @gig_id = params[:gig_id]
     respond_with @org
   end
 
@@ -27,6 +28,15 @@ class OrgsController < ApplicationController
     
     if @org.save
       @org.members << current_user if user_signed_in?
+      
+      begin
+        # associate with the gig
+        gig = Gig.find(params[:gig][:id])
+        gig.org = @org
+        gig.save
+      rescue
+      end
+      
       flash[:notice] = 'Org was successfully created.'
     end
     

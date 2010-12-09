@@ -46,8 +46,12 @@ class GigsController < ApplicationController
         flash[:notice] = 'Gig was successfully created.'
       end
     end
-      
-    respond_with @gig
+    
+    respond_with @gig do |format|
+      if @gig.persisted? and @gig.company.present?
+        format.html { redirect_to [new_org_path, "?name=#{@gig.company}&gig_id=#{@gig.id}"].join }
+      end
+    end
   end
 
   def update
