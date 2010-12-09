@@ -41,6 +41,8 @@ group :development do
   gem 'cucumber-rails', '~>0.3.2'
   gem 'haml-rails', '~>0.3.1'
   gem 'rspec-rails', '~>2.0.0'
+  gem 'ruby-debug'
+  gem 'mongrel'
   
   # gems for Devise
   gem 'hpricot', '~>0.8.2'
