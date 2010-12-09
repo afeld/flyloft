@@ -28,6 +28,7 @@ h1:first-child {
 #wrapper > div {
   background-color: white;
   border-radius: 15px;
+  -moz-border-radius: 15px;
   padding: 20px;
   margin-bottom: 10px;
 }
@@ -77,10 +78,17 @@ h1:first-child {
   font-weight: bold; 
 }
 
-form.formtastic fieldset {
-  border-bottom: 1px solid gray;
-  margin: 10px 10px 0;
+form.formtastic fieldset legend {
+  font-weight: bold;
+  margin-left: 0;
+  padding-right: 4px;
 }
-form.formtastic fieldset:last-child {
-  border-bottom: none;
+
+form.formtastic > fieldset {
+  border-top: 1px solid gray;
+  padding-top: 10px;
+}
+form.formtastic > fieldset:first-child {
+  border-top: none;
+  margin-top: 0;
 }
