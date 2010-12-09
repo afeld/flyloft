@@ -1,5 +1,6 @@
 class OrgsController < ApplicationController
   respond_to :html
+  before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
     @orgs = Org.all

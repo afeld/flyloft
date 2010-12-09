@@ -1,5 +1,6 @@
 class GigsController < ApplicationController
   respond_to :html, :rss, :atom, :xml
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
     @gigs = Gig.all
