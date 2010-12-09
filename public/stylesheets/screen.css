@@ -92,3 +92,6 @@ form.formtastic > fieldset:first-child {
   border-top: none;
   margin-top: 0;
 }
+form.formtastic > fieldset > * {
+  margin-left: 10px;
+}
