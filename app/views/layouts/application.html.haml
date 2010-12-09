@@ -2,9 +2,14 @@
 %html
   %head
     %title Flyloft
-    = stylesheet_link_tag :all, :recursive => true
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
-    = javascript_include_tag :all
+    = stylesheet_link_tag 'scaffold'
+    = stylesheet_link_tag 'ui-lightness/jquery-ui-1.8.6.custom.css'
+    = stylesheet_link_tag 'formtastic'
+    = stylesheet_link_tag 'screen'
+    = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'
+    = javascript_include_tag 'jquery-ui-1.8.5.datepicker.min'
+    = javascript_include_tag 'rails'
+    = javascript_include_tag 'application'
     = csrf_meta_tag
     = yield :additional_head_info
   %body
