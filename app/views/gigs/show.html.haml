@@ -2,11 +2,8 @@
   %b Title:
   = @gig.title
 %p
-  %b Company:
-  = @gig.company
-%p
   %b Organization:
-  = @gig.org.name if @gig.org
+  = link_to_org(@gig)
 %p
   %b Description:
   = @gig.description
@@ -18,10 +15,10 @@
   = @gig.contact_last_name
 %p
   %b Contact email:
-  = @gig.contact_email
+  = mail_to @gig.contact_email
 %p
   %b Creator:
-  = @gig.creator.display_name if @gig.creator
+  = link_to @gig.creator.display_name, @gig.creator if @gig.creator
 %p
   %b City:
   = @gig.city
@@ -45,5 +42,7 @@
   = @gig.view_count
 
 = link_to 'Edit', edit_gig_path(@gig)
+\|
+= link_to 'Destroy', @gig, :confirm => 'Are you sure?', :method => :delete
 \|
 = link_to 'Back', gigs_path

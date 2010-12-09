@@ -30,6 +30,12 @@
   %b Founding year:
   = @org.founding_year
 %p
+  %b Gigs:
+  %ul
+  - @org.gigs.each do |gig|
+    %li
+      = link_to gig.title, gig
+%p
   %b Members:
   %ul
   - @org.members.each do |member|
@@ -37,5 +43,7 @@
       = link_to member.display_name, member
 
 = link_to 'Edit', edit_org_path(@org)
+\|
+= link_to 'Destroy', @org, :confirm => 'Are you sure?', :method => :delete
 \|
 = link_to 'Back', orgs_path

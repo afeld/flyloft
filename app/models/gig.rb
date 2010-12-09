@@ -12,6 +12,7 @@ class Gig < ActiveRecord::Base
   
   accepts_nested_attributes_for :auditions, :reject_if => :all_blank, :allow_destroy => true
   
+  validates :title, :presence => true
   validate :expire_at_later_than_post_at
   validate :post_and_expire_must_be_present_to_enable
   

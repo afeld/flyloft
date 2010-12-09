@@ -6,16 +6,10 @@
   %tr
     %th Name
     %th Location
-    %th
-    %th
-    %th
 
   - @orgs.each do |org|
     %tr
-      %td= org.name
+      %td= link_to org.name, org
       %td= org.location
-      %td= link_to 'Show', org
-      %td= link_to 'Edit', edit_org_path(org)
-      %td= link_to 'Destroy', org, :confirm => 'Are you sure?', :method => :delete
 
 %br

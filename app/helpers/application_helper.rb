@@ -10,4 +10,8 @@ module ApplicationHelper
     end
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
+  
+  def link_to_org(gig)
+    gig.org ? link_to(gig.org.name, gig.org) : gig.company
+  end
 end
