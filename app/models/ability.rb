@@ -8,6 +8,12 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :manage, Gig do |gig|
+        gig.try(:creator) == user
+      end
+      can :manage, Org do |org|
+        user.is_org_admin? org
+      end
     end
   end
 end

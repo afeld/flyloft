@@ -42,8 +42,10 @@
     %li
       = link_to member.display_name, member
 
-= link_to 'Edit', edit_org_path(@org)
-\|
-= link_to 'Destroy', @org, :confirm => 'Are you sure?', :method => :delete
-\|
+- if can? :edit, @org
+  = link_to 'Edit', edit_org_path(@org)
+  \|
+- if can? :destroy, @org
+  = link_to 'Destroy', @org, :confirm => 'Are you sure?', :method => :delete
+  \|
 = link_to 'Back', orgs_path

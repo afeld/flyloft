@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)
   end
+  
+  def is_org_admin?(org)
+    OrgMembership.exists? :org_id => org, :user_id => self, :is_admin => true
+  end
 end
