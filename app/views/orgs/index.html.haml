@@ -4,12 +4,14 @@
 
 %table
   %tr
-    %th Name
-    %th Location
+    = sortable_table_header :name => "Name",  :sort => "name"
+    = sortable_table_header :name => "Location",  :sort => "city"
+    = sortable_table_header :name => "Date added",  :sort => "created_at"
 
   - @orgs.each do |org|
     %tr
       %td= link_to org.name, org
       %td= org.location
+      %td= org.created_at
 
 %br

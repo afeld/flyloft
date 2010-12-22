@@ -2,8 +2,10 @@ class OrgsController < ApplicationController
   respond_to :html
   before_filter :authenticate_user!, :except => [:index, :show]
   
+  sortable_attributes :created_at, :name, :city
+  
   def index
-    @orgs = Org.all
+    @orgs = Org.paginate :page => params[:page], :order => sort_order
     respond_with @orgs
   end
 
