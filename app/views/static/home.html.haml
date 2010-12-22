@@ -1,8 +1,10 @@
 Welcome to Flyloft.  We are really cool for lots of reasons.
 = link_to "List a gig!", new_gig_path
 %h2
-  = link_to "Upcoming Gigs", gigs_path
+  = link_to "Upcoming Auditions", gigs_path
 %ul
-- @gigs.each do |gig|
+- @auditions.each do |audition|
   %li
-    = link_to gig.title, gig
+    = link_to audition.gig.title, audition.gig
+    = audition.location
+    = audition.start_at.to_s :day_with_time

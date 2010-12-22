@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
   def home
-    @gigs = Gig.all(:limit => 20, :order => "post_at DESC", :conditions => {:enabled => true})
+    @auditions = Audition.active.all :limit => 20, :order => "start_at DESC", :include => :gig
   end
 end
