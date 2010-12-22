@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101203050904) do
+ActiveRecord::Schema.define(:version => 20101222084420) do
 
   create_table "auditions", :force => true do |t|
     t.integer  "gig_id"
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(:version => 20101203050904) do
     t.integer  "founding_year"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|

@@ -41,8 +41,10 @@
   %b View count:
   = @gig.view_count
 
-= link_to 'Edit', edit_gig_path(@gig)
-\|
-= link_to 'Destroy', @gig, :confirm => 'Are you sure?', :method => :delete
-\|
+- if can? :edit, @gig
+  = link_to 'Edit', edit_gig_path(@gig)
+  \|
+- if can? :destroy, @gig
+  = link_to 'Destroy', @gig, :confirm => 'Are you sure?', :method => :delete
+  \|
 = link_to 'Back', gigs_path
