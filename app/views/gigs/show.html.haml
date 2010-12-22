@@ -1,45 +1,42 @@
-%p
-  %b Title:
+%h1
   = @gig.title
-%p
-  %b Organization:
-  = link_to_org(@gig)
-%p
-  %b Description:
-  = @gig.description
-%p
-  %b Contact first name:
+%div
+  .org_name
+    = link_to_org(@gig)
+  .location
+    = @gig.location
+%div
+  %h2 Description
+  %p
+    = @gig.description
+%div
+  %h2 Auditions
+  %ul
+    - @gig.auditions.each do |audition|
+      %li.audition
+        = audition.place
+        %br
+        = audition.location
+        %br
+        = audition.start_at.to_s :date
+        %br
+        = "#{audition.start_at.to_s :time} - #{audition.end_at.to_s :time}"
+%div
+  %h2 Contact Info
   = @gig.contact_first_name
-%p
-  %b Contact last name:
   = @gig.contact_last_name
-%p
-  %b Contact email:
+  %br
   = mail_to @gig.contact_email
-%p
-  %b Creator:
-  = link_to @gig.creator.display_name, @gig.creator if @gig.creator
-%p
-  %b City:
-  = @gig.city
-%p
-  %b State:
-  = @gig.state
-%p
-  %b Country:
-  = @gig.country
-%p
-  %b Post date:
-  = @gig.post_at
-%p
-  %b Expire date:
-  = @gig.expire_at
-%p
-  %b Enabled:
-  = @gig.enabled
-%p
-  %b View count:
-  = @gig.view_count
+%div
+  %p
+    %b Posted:
+    = @gig.post_at
+  %p
+    %b Expires:
+    = @gig.expire_at
+  %p
+    %b View count:
+    = @gig.view_count
 
 - if can? :edit, @gig
   = link_to 'Edit', edit_gig_path(@gig)
