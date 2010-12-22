@@ -1,7 +1,7 @@
 class CreateAuditions < ActiveRecord::Migration
   def self.up
     create_table :auditions do |t|
-      t.integer :gig_id
+      t.references :gig
       t.string :place
       t.string :address
       t.string :city
