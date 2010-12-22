@@ -1,9 +1,11 @@
 class GigsController < ApplicationController
   respond_to :html, :rss, :atom, :xml
   before_filter :authenticate_user!, :except => [:index, :show]
+  
+  sortable_attributes :created_at, :title, :expire_at, :city, :org => 'orgs.name'
 
   def index
-    @gigs = Gig.all
+    @gigs = Gig.paginate :page => params[:page], :order => sort_order, :include => :org
     respond_with @gigs
   end
 

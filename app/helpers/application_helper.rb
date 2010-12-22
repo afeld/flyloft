@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include SortableTable::App::Helpers::ApplicationHelper
+  
   def link_to_remove_fields(name, f)
     f.hidden_field(:_destroy, :value => "") + link_to_function(name, "", :class => "remove-field")
   end

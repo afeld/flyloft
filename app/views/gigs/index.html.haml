@@ -7,11 +7,11 @@
 
 %table
   %tr
-    %th Title
-    %th Organization
-    %th Location
-    %th Post date
-    %th Expire date
+    = sortable_table_header :name => "Title",  :sort => "title"
+    = sortable_table_header :name => "Org",  :sort => "org"
+    = sortable_table_header :name => "Location",  :sort => "city"
+    = sortable_table_header :name => "Posted",  :sort => "created_at"
+    = sortable_table_header :name => "Expires",  :sort => "expire_at"
 
   - @gigs.each do |gig|
     %tr
