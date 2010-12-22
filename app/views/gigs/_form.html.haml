@@ -27,7 +27,9 @@
         $('#gig_org_id').change(function(e){ hideCompanyIfOrgSelected(); });
       });
   
-  = f.inputs :city, :state, :name => "Location"
+  = f.inputs :name => "Location" do
+    = f.input :city
+    = f.input :state, :as => :select, :collection => State::NAMES
       
   = f.inputs :name => "Contact Info" do
     = f.input :contact_first_name, :label => "First Name"

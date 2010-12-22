@@ -17,10 +17,14 @@
         = audition.place
         %br
         = audition.location
-        %br
-        = audition.start_at.to_s :date
-        %br
-        = "#{audition.start_at.to_s :time} - #{audition.end_at.to_s :time}"
+        - if audition.start_at
+          %br
+          = audition.start_at.to_s :date
+          %br
+          = audition.start_at.to_s :time
+          - if audition.end_at
+            \-
+            = audition.end_at.to_s :time
 %div
   %h2 Contact Info
   = @gig.contact_first_name

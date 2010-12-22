@@ -10,7 +10,7 @@ class GigsController < ApplicationController
   end
 
   def show
-    @gig = Gig.find(params[:id], :include => [:org, :auditions])
+    @gig = Gig.find params[:id], :include => [:org, :auditions, :creator]
     if !user_signed_in? or current_user != @gig.creator
       @gig.view_count += 1
       @gig.save
