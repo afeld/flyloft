@@ -28,6 +28,7 @@ gem 'formtastic_datepicker_inputs'
 gem 'simple-navigation', '~>3.0.2'
 gem 'devise', '~>1.1.2'
 gem 'jquery-rails'
+gem 'will_paginate', '~> 3.0.pre2'
 # gem 'rails-geocoder', :require => 'geocoder'
 
 # Bundle gems for the local environment. Make sure to
